@@ -14,11 +14,15 @@ class UsersController < ApplicationController
             flash.now[:danger] = "Search field can't be blank, try again."
         else
             @users = User.search(params[:search_param])
+            @users = current_user.except_current_users(@users)
             flash.now[:danger] = "No match found." if @users.blank?
         end
         respond_to do |format|
             format.js { render partial: 'friends/result' }
         end
+    end
+
+    def add_friend
     end
 
 end
