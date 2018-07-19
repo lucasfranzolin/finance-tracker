@@ -1,1 +1,36 @@
-<h1>friends</h1>
+<%= render 'friends/lookup' %>
+
+<h1 align="center"><%= "My friends"  %></h1>
+
+<% if @friendships.size > 0 %>
+    <div class="results-block col-md-12">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+
+
+            <!-- Table -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @friendships.each do |f| %>
+                        <tr>
+                            <td><%= link_to f.full_name, user_path(f) %></th>
+                            <td><%= f.email %></td>
+                            <td><%= link_to "Remove", friendship_path(f), method: :delete, class:"btn btn-xs btn-danger" %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<% else %>
+    <div class="row col-lg-12">
+        <p class="lead"> You don't have any friends yet. Add some!</p>
+    </div>
+<% end %>

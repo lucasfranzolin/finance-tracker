@@ -6,6 +6,19 @@ class UsersController < ApplicationController
     end
 
     def my_friends
+      @friendships = current_user.friends
+    end
+
+    def search
+        if params[:search_param].blank?
+            flash.now[:danger] = "Search field can't be blank, try again."
+        else
+            @users = User.search(params[:search_param])
+            flash.now[:danger] = "No match found." if @users.blank?
+        end
+        respond_to do |format|
+            format.js { render partial: 'friends/result' }
+        end
     end
 
 end
