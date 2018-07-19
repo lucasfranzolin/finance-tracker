@@ -1,3 +1,6 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 .logout {
     padding-left: 0;
 }
@@ -16,5 +19,5 @@
 }
 
 .nav.navbar-right .logout {
-    margin-top: 5px; 
+    margin-top: 5px;
 }
