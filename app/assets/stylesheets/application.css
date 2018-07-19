@@ -33,3 +33,7 @@
 .float-right {
     float: right;
 }
+
+.margin-bottom {
+    margin-bottom: 20px;
+}

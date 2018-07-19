@@ -18,8 +18,8 @@
                 <tbody>
                     <% @friendships.each do |f| %>
                         <tr>
-                            <td><%= link_to f.full_name, user_path(f) %></th>
-                            <td><%= f.email %></td>
+                            <td><%= f.full_name %></th>
+                            <td><%= link_to f.email, user_path(f) %></td>
                             <td><%= link_to "Remove", friendship_path(f), method: :delete, class:"btn btn-xs btn-danger" %></td>
                         </tr>
                     <% end %>

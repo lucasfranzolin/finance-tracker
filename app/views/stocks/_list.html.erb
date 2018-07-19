@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% current_user.stocks.each do |us| %>
+                <% @user_stocks.each do |us| %>
                     <tr>
                         <th scope="row"><%= us.ticker %></th>
                         <td><%= us.name %></td>
